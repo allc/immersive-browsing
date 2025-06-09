@@ -3,7 +3,7 @@ const MAX_O2_LEVEL = 225;
 const body = document.querySelector('body');
 
 const depthDisplay = document.createElement('div');
-depthDisplay.textContent = '0px';
+depthDisplay.textContent = '0 px';
 depthDisplay.style.position = 'fixed';
 depthDisplay.style.top = '20px';
 depthDisplay.style.left = '50%';
@@ -20,9 +20,9 @@ depthDisplay.style.borderRadius = '5px';
 depthDisplay.style.fontFamily = 'Arial, sans-serif';
 body.appendChild(depthDisplay);
 
-depthDisplay.textContent = `${Math.round(window.scrollY)}px`;
+depthDisplay.textContent = `${Math.round(window.scrollY)} px`;
 window.addEventListener('scroll', () => {
-  depthDisplay.textContent = `${Math.round(window.scrollY)}px`;
+  depthDisplay.textContent = `${Math.round(window.scrollY)} px`;
 });
 
 const o2DisplayBackground = document.createElement('div');
@@ -50,7 +50,6 @@ o2DisplayBackgroundOverlay.style.padding = '40px';
 o2DisplayBackgroundOverlay.style.borderRadius = '50%';
 o2DisplayBackgroundOverlay.style.boxSizing = 'unset';
 o2DisplayBackgroundOverlay.style.clipPath = 'inset(0 0 0 0)';
-o2DisplayBackgroundOverlay.id = 'o2DisplayBackgroundOverlay';
 body.appendChild(o2DisplayBackgroundOverlay);
 
 const o2Display = document.createElement('div');
