@@ -25,17 +25,43 @@ window.addEventListener('scroll', () => {
   depthDisplay.textContent = `${Math.round(window.scrollY)}px`;
 });
 
+const o2DisplayBackground = document.createElement('div');
+o2DisplayBackground.style.position = 'fixed';
+o2DisplayBackground.style.bottom = '50px';
+o2DisplayBackground.style.left = '50px';
+o2DisplayBackground.style.zIndex = '9999';
+o2DisplayBackground.style.backgroundColor = 'rgb(59, 173, 169)';
+o2DisplayBackground.style.height = '60px';
+o2DisplayBackground.style.width = '60px';
+o2DisplayBackground.style.padding = '40px';
+o2DisplayBackground.style.borderRadius = '50%';
+o2DisplayBackground.style.boxSizing = 'unset';
+body.appendChild(o2DisplayBackground);
+
+const o2DisplayBackgroundOverlay = document.createElement('div');
+o2DisplayBackgroundOverlay.style.position = 'fixed';
+o2DisplayBackgroundOverlay.style.bottom = '50px';
+o2DisplayBackgroundOverlay.style.left = '50px';
+o2DisplayBackgroundOverlay.style.zIndex = '9999';
+o2DisplayBackgroundOverlay.style.backgroundColor = 'rgb(96, 193, 125)';
+o2DisplayBackgroundOverlay.style.height = '60px';
+o2DisplayBackgroundOverlay.style.width = '60px';
+o2DisplayBackgroundOverlay.style.padding = '40px';
+o2DisplayBackgroundOverlay.style.borderRadius = '50%';
+o2DisplayBackgroundOverlay.style.boxSizing = 'unset';
+o2DisplayBackgroundOverlay.style.clipPath = 'inset(0 0 0 0)';
+o2DisplayBackgroundOverlay.id = 'o2DisplayBackgroundOverlay';
+body.appendChild(o2DisplayBackgroundOverlay);
+
 const o2Display = document.createElement('div');
 o2Display.style.position = 'fixed';
 o2Display.style.bottom = '50px';
 o2Display.style.left = '50px';
 o2Display.style.zIndex = '9999';
-o2DisplayBackground.style.backgroundColor = 'rgb(59, 115, 129)';
 o2Display.style.color = 'white';
 o2Display.style.height = '60px';
 o2Display.style.width = '60px';
 o2Display.style.padding = '40px';
-o2Display.style.borderRadius = '50%';
 o2Display.style.textAlign = 'center';
 o2Display.style.fontSize = '25px';
 o2Display.style.fontFamily = 'Arial, sans-serif';
@@ -87,6 +113,7 @@ function start() {
       }, 3000);
     }
     o2DisplayText.textContent = Math.round(o2Level).toString();
+    o2DisplayBackgroundOverlay.style.clipPath = `inset(${100 - (o2Level / MAX_O2_LEVEL) * 100}% 0 0 0)`;
   }, 500);
 }
 start();
